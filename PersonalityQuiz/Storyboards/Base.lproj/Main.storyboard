@@ -272,6 +272,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="multipleStackView" destination="eab-QM-nKy" id="HtE-AR-TeE"/>
+                        <outlet property="navigationBar" destination="Rt0-TY-bXC" id="jGv-8T-o9o"/>
                         <outlet property="questionLabel" destination="jCn-gc-uJv" id="wtW-Lo-uPH"/>
                         <outlet property="questionProgressView" destination="UbN-Qt-aTK" id="38G-Ld-i9C"/>
                         <outlet property="rangedSlider" destination="Bg7-UN-a3c" id="F2n-cz-6vt"/>
@@ -342,6 +343,7 @@
                     <connections>
                         <outlet property="animalDescriptionLabel" destination="ubD-vy-JkF" id="8hQ-ST-KGo"/>
                         <outlet property="animalTypeDeclarationLabel" destination="bIB-Ip-f7f" id="dcu-Gp-OoB"/>
+                        <outlet property="navigationBar" destination="NDG-ge-CvD" id="2DP-xE-fqr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKR-tJ-42c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

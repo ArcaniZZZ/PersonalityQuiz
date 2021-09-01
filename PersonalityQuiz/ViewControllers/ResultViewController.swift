@@ -11,15 +11,16 @@ class ResultViewController: UIViewController {
     
     @IBOutlet var animalTypeDeclarationLabel: UILabel!
     @IBOutlet var animalDescriptionLabel: UILabel!
+    @IBOutlet var navigationBar: UINavigationItem!
     
-    var chosenAnswers: [Answer]!
-    var mostCommonAnimal: Animal!
+    private var chosenAnswers: [Answer]!
+    private var mostCommonAnimal: Animal!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showAnimalType()
         showAnimalDescription()
-        
+        navigationBar.hidesBackButton = true
     }
     
     private func showAnimalType() {

@@ -9,6 +9,9 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
+    
+    @IBOutlet var navigationBar: UINavigationItem!
+    
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var questionProgressView: UIProgressView!
     
@@ -39,6 +42,7 @@ class QuestionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        navigationBar.rightBarButtonItem = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
