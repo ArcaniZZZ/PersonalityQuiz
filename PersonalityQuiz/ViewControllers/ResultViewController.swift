@@ -11,10 +11,10 @@ class ResultViewController: UIViewController {
     
     @IBOutlet var animalTypeDeclarationLabel: UILabel!
     @IBOutlet var animalDescriptionLabel: UILabel!
+    
     @IBOutlet var navigationBar: UINavigationItem!
     
     private var chosenAnswers: [Answer]!
-    private var mostCommonAnimal: Animal!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +44,15 @@ class ResultViewController: UIViewController {
                 answersDict[$0.animal] = 1
             }
         }
-        guard let resultingAnimal = answersDict.sorted(by: { $0.value > $1.value }).first?.key else { return nil }
+        guard let resultingAnimal = answersDict
+                .sorted(by: { $0.value > $1.value })
+                .first?.key
+        else { return nil }
+        
         result = resultingAnimal
         return result
-        }
     }
+}
 
 
 
