@@ -12,35 +12,38 @@ class ResultViewController: UIViewController {
     @IBOutlet var animalTypeDeclarationLabel: UILabel!
     @IBOutlet var animalDescriptionLabel: UILabel!
     
-    var chosenAnswers: [Answer]! {
-        didSet {
-            defineTestResults()
-        }
-    }
-    
-    // 1. Передать сюда массив с ответами
-    // 2. Определить наиболее часто встречающийся тип животного
-    // 3. Отобразить результат в соответствии с этим животным
-    // 4. Избавиться от кнопки возврата на предыдущий экран
+    var chosenAnswers: [Answer]!
+    var mostCommonAnimal: Animal!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        defineTestResults()
+        showAnimalType()
+        showAnimalDescription()
         
     }
     
-    private func defineTestResults() -> Animal {
+    private func showAnimalType() {
+        guard let shownAnimalEmoji = defineTestResults()?.rawValue else { return }
+        animalTypeDeclarationLabel.text = "Вы - \(shownAnimalEmoji)"
+    }
+    
+    private func showAnimalDescription() {
+        guard let shownAnimalDescription = defineTestResults()?.definition else { return }
+        animalDescriptionLabel.text = shownAnimalDescription
+    }
+    
+    private func defineTestResults() -> Animal? {
         var answersDict: [Animal : Int] = [:]
         var result: Animal
         
         chosenAnswers.forEach {
-            if let animal = answersDict[$0.animal] {
-                answersDict[$0.animal] = animal + 1
+            if let count = answersDict[$0.animal] {
+                answersDict[$0.animal] = count + 1
             } else {
                 answersDict[$0.animal] = 1
             }
         }
-        guard let resultingAnimal = animalsDict.sorted { $0.value > $1.value }.first?.key else { return }
+        guard let resultingAnimal = answersDict.sorted(by: { $0.value > $1.value }).first?.key else { return nil }
         result = resultingAnimal
         return result
         }
