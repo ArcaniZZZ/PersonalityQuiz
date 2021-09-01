@@ -14,7 +14,7 @@ class ResultViewController: UIViewController {
     
     @IBOutlet var navigationBar: UINavigationItem!
     
-    private var chosenAnswers: [Answer]!
+    var chosenAnswers: [Answer]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
